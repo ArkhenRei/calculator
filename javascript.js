@@ -1,44 +1,43 @@
 let display = document.querySelector("#display");
 let numberButton = document.querySelectorAll(".number");
-let digitArray = Array.from(numberButton); //convert nodelist to array
-let addOperator = document.querySelector(".add");
-let equals = document.querySelector(".equals");
+let numberArray = Array.from(numberButton);
 
 let displayValue;
 let writeValue;
-let numberArray;
+let firstNumber;
+let secondNumber;
 let operator;
 let result;
 
-function add(numberArray) {
-  return numberArray.reduce((acc, cur) => acc + cur);
+function add(num1, num2) {
+  return num1 + num2;
 }
 
-function subtract(numberArray) {
-  return numberArray.reduce((acc, cur) => acc - cur);
+function subtract(num1, num2) {
+  return num1 - num2;
 }
 
-function multiply(numberArray) {
-  return numberArray.reduce((acc, cur) => acc * cur);
+function multiply(num1, num2) {
+  return num1 * num2;
 }
 
-function divide(numberArray) {
-  return numberArray.reduce((acc, cur) => acc / cur);
+function divide(num1, num2) {
+  return num1 / num2;
 }
 
-function operate(operator, numberArray) {
+function operate(operator, firstNumber, secondNumber) {
   switch (operator) {
     case "+":
-      result = add(numberArray);
+      result = add(firstNumber, secondNumber);
       break;
     case "-":
-      result = subtract(numberArray);
+      result = subtract(firstNumber, secondNumber);
       break;
     case "*":
-      result = multiply(numberArray);
+      result = multiply(firstNumber, secondNumber);
       break;
     case "/":
-      result = divide(numberArray);
+      result = divide(firstNumber, secondNumber);
       break;
     default:
       console.log("invalid operator");
@@ -48,7 +47,7 @@ function operate(operator, numberArray) {
 
 function populateDisplay() {
   //display 0
-  digitArray.at(9).addEventListener("click", () => {
+  numberArray.at(9).addEventListener("click", () => {
     if (!(display.textContent === "0")) {
       writeValue = document.createTextNode("0");
       display.appendChild(writeValue);
@@ -57,7 +56,7 @@ function populateDisplay() {
   });
 
   //display 1
-  digitArray.at(6).addEventListener("click", () => {
+  numberArray.at(6).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "1";
     } else {
@@ -68,7 +67,7 @@ function populateDisplay() {
   });
 
   //display 2
-  digitArray.at(7).addEventListener("click", () => {
+  numberArray.at(7).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "2";
     } else {
@@ -79,7 +78,7 @@ function populateDisplay() {
   });
 
   //display 3
-  digitArray.at(8).addEventListener("click", () => {
+  numberArray.at(8).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "3";
     } else {
@@ -90,7 +89,7 @@ function populateDisplay() {
   });
 
   //display 4
-  digitArray.at(3).addEventListener("click", () => {
+  numberArray.at(3).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "4";
     } else {
@@ -101,7 +100,7 @@ function populateDisplay() {
   });
 
   //display 5
-  digitArray.at(4).addEventListener("click", () => {
+  numberArray.at(4).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "5";
     } else {
@@ -112,7 +111,7 @@ function populateDisplay() {
   });
 
   //display 6
-  digitArray.at(5).addEventListener("click", () => {
+  numberArray.at(5).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "6";
     } else {
@@ -123,7 +122,7 @@ function populateDisplay() {
   });
 
   //display 7
-  digitArray.at(0).addEventListener("click", () => {
+  numberArray.at(0).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "7";
     } else {
@@ -134,7 +133,7 @@ function populateDisplay() {
   });
 
   //display 8
-  digitArray.at(1).addEventListener("click", () => {
+  numberArray.at(1).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "8";
     } else {
@@ -145,7 +144,7 @@ function populateDisplay() {
   });
 
   //display 9
-  digitArray.at(2).addEventListener("click", () => {
+  numberArray.at(2).addEventListener("click", () => {
     if (display.textContent === "0") {
       display.textContent = "9";
     } else {
@@ -154,8 +153,6 @@ function populateDisplay() {
     }
     displayValue = display.textContent;
   });
-
-  
 }
 
 function main() {
