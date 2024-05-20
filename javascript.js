@@ -6,6 +6,7 @@ let subtractButton = document.querySelector(".subtract");
 let multiplyButton = document.querySelector(".multiply");
 let divideButton = document.querySelector(".divide");
 let equalsButton = document.querySelector(".equals");
+let clearButton = document.querySelector(".clear");
 
 let displayValue;
 let writeValue;
@@ -14,7 +15,7 @@ let secondNumber;
 let operator;
 let result;
 
-let sol;
+let solution;
 
 function add(firstNumber, secondNumber) {
   return firstNumber + secondNumber;
@@ -57,7 +58,8 @@ function populateDisplay() {
   numberArray.at(9).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "0";
     } else {
@@ -72,7 +74,8 @@ function populateDisplay() {
   numberArray.at(6).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "1";
     } else {
@@ -87,7 +90,8 @@ function populateDisplay() {
   numberArray.at(7).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "2";
     } else {
@@ -102,7 +106,8 @@ function populateDisplay() {
   numberArray.at(8).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "3";
     } else {
@@ -117,7 +122,8 @@ function populateDisplay() {
   numberArray.at(3).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "4";
     } else {
@@ -132,7 +138,8 @@ function populateDisplay() {
   numberArray.at(4).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "5";
     } else {
@@ -147,7 +154,8 @@ function populateDisplay() {
   numberArray.at(5).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "6";
     } else {
@@ -162,7 +170,8 @@ function populateDisplay() {
   numberArray.at(0).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "7";
     } else {
@@ -177,7 +186,8 @@ function populateDisplay() {
   numberArray.at(1).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "8";
     } else {
@@ -192,7 +202,8 @@ function populateDisplay() {
   numberArray.at(2).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber
+      Number(display.textContent) === firstNumber ||
+      solution === undefined
     ) {
       display.textContent = "9";
     } else {
@@ -239,24 +250,35 @@ function populateDisplay() {
     }
   });
 
-  //equals butonuna basıldıktan sonra hesaplama yapılacak ardından herhangi bir sayı butonuna basılırsa display ekranında yeni sayı yazılacak
-  equalsButton.addEventListener("click", () => {
+  equalsButton.addEventListener("mouseup", (e) => {
     if (operator !== undefined) {
       secondNumber = Number(displayValue);
-      display.textContent = operate(operator, firstNumber, secondNumber);
+      solution = operate(operator, firstNumber, secondNumber);
+      display.textContent = solution;
+      solution = undefined;
+      firstNumber = undefined;
+      secondNumber = undefined;
+      operator = undefined;
     }
+  });
+
+  clearButton.addEventListener("click", () => {
+    display.textContent = 0;
+    solution = undefined;
+    firstNumber = undefined;
+    secondNumber = undefined;
+    operator = undefined;
   });
 }
 
 function calculate() {
   if (!(firstNumber === undefined)) {
     secondNumber = Number(displayValue);
-    sol = operate(operator, firstNumber, secondNumber);
-    display.textContent = sol;
-    firstNumber = sol;
+    solution = operate(operator, firstNumber, secondNumber);
+    display.textContent = solution;
+    firstNumber = solution;
   } else {
     firstNumber = Number(displayValue);
-    display.textContent = 0;
   }
 }
 
