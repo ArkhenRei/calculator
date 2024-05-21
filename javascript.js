@@ -14,6 +14,8 @@ let firstNumber;
 let secondNumber;
 let operator;
 let result;
+let equalsPressed = false;
+let operatorPressed = false;
 
 let solution;
 
@@ -58,10 +60,11 @@ function populateDisplay() {
   numberArray.at(9).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "0";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("0");
       display.appendChild(writeValue);
@@ -74,10 +77,11 @@ function populateDisplay() {
   numberArray.at(6).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "1";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("1");
       display.appendChild(writeValue);
@@ -90,10 +94,11 @@ function populateDisplay() {
   numberArray.at(7).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "2";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("2");
       display.appendChild(writeValue);
@@ -106,10 +111,11 @@ function populateDisplay() {
   numberArray.at(8).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "3";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("3");
       display.appendChild(writeValue);
@@ -122,10 +128,11 @@ function populateDisplay() {
   numberArray.at(3).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "4";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("4");
       display.appendChild(writeValue);
@@ -138,10 +145,11 @@ function populateDisplay() {
   numberArray.at(4).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "5";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("5");
       display.appendChild(writeValue);
@@ -154,10 +162,11 @@ function populateDisplay() {
   numberArray.at(5).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "6";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("6");
       display.appendChild(writeValue);
@@ -170,10 +179,11 @@ function populateDisplay() {
   numberArray.at(0).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "7";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("7");
       display.appendChild(writeValue);
@@ -186,10 +196,11 @@ function populateDisplay() {
   numberArray.at(1).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "8";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("8");
       display.appendChild(writeValue);
@@ -202,10 +213,11 @@ function populateDisplay() {
   numberArray.at(2).addEventListener("click", () => {
     if (
       display.textContent === "0" ||
-      Number(display.textContent) === firstNumber ||
-      solution === undefined
+      operatorPressed || equalsPressed
     ) {
       display.textContent = "9";
+      equalsPressed = false;
+      operatorPressed = false;
     } else {
       writeValue = document.createTextNode("9");
       display.appendChild(writeValue);
@@ -215,6 +227,7 @@ function populateDisplay() {
   });
 
   sumButton.addEventListener("click", () => {
+    operatorPressed = true;
     if (operator !== "+") {
       calculate();
       operator = "+";
@@ -224,6 +237,7 @@ function populateDisplay() {
   });
 
   subtractButton.addEventListener("click", () => {
+    operatorPressed = true;
     if (operator !== "-") {
       calculate();
       operator = "-";
@@ -233,6 +247,7 @@ function populateDisplay() {
   });
 
   multiplyButton.addEventListener("click", () => {
+    operatorPressed = true;
     if (operator !== "*") {
       calculate();
       operator = "*";
@@ -242,6 +257,7 @@ function populateDisplay() {
   });
 
   divideButton.addEventListener("click", () => {
+    operatorPressed = true;
     if (operator !== "/") {
       calculate();
       operator = "/";
@@ -250,7 +266,8 @@ function populateDisplay() {
     }
   });
 
-  equalsButton.addEventListener("mouseup", (e) => {
+  equalsButton.addEventListener("click", () => {
+    equalsPressed = true;
     if (operator !== undefined) {
       secondNumber = Number(displayValue);
       solution = operate(operator, firstNumber, secondNumber);
