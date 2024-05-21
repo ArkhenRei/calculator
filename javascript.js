@@ -58,10 +58,7 @@ function operate(operator, firstNumber, secondNumber) {
 function populateDisplay() {
   //display 0
   numberArray.at(9).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "0";
       equalsPressed = false;
       operatorPressed = false;
@@ -75,10 +72,7 @@ function populateDisplay() {
 
   //display 1
   numberArray.at(6).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "1";
       equalsPressed = false;
       operatorPressed = false;
@@ -92,10 +86,7 @@ function populateDisplay() {
 
   //display 2
   numberArray.at(7).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "2";
       equalsPressed = false;
       operatorPressed = false;
@@ -109,10 +100,7 @@ function populateDisplay() {
 
   //display 3
   numberArray.at(8).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "3";
       equalsPressed = false;
       operatorPressed = false;
@@ -126,10 +114,7 @@ function populateDisplay() {
 
   //display 4
   numberArray.at(3).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "4";
       equalsPressed = false;
       operatorPressed = false;
@@ -143,10 +128,7 @@ function populateDisplay() {
 
   //display 5
   numberArray.at(4).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "5";
       equalsPressed = false;
       operatorPressed = false;
@@ -160,10 +142,7 @@ function populateDisplay() {
 
   //display 6
   numberArray.at(5).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "6";
       equalsPressed = false;
       operatorPressed = false;
@@ -177,10 +156,7 @@ function populateDisplay() {
 
   //display 7
   numberArray.at(0).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "7";
       equalsPressed = false;
       operatorPressed = false;
@@ -194,10 +170,7 @@ function populateDisplay() {
 
   //display 8
   numberArray.at(1).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "8";
       equalsPressed = false;
       operatorPressed = false;
@@ -211,10 +184,7 @@ function populateDisplay() {
 
   //display 9
   numberArray.at(2).addEventListener("click", () => {
-    if (
-      display.textContent === "0" ||
-      operatorPressed || equalsPressed
-    ) {
+    if (display.textContent === "0" || operatorPressed || equalsPressed) {
       display.textContent = "9";
       equalsPressed = false;
       operatorPressed = false;
@@ -270,8 +240,12 @@ function populateDisplay() {
     equalsPressed = true;
     if (operator !== undefined) {
       secondNumber = Number(displayValue);
-      solution = operate(operator, firstNumber, secondNumber);
-      display.textContent = solution;
+      solution = Math.round(operate(operator, firstNumber, secondNumber));
+      if (isNaN(solution) || solution === Infinity) {
+        display.textContent = "infinity and beyond";
+      } else {
+        display.textContent = solution;
+      }
       solution = undefined;
       firstNumber = undefined;
       secondNumber = undefined;
@@ -291,9 +265,17 @@ function populateDisplay() {
 function calculate() {
   if (!(firstNumber === undefined)) {
     secondNumber = Number(displayValue);
-    solution = operate(operator, firstNumber, secondNumber);
-    display.textContent = solution;
-    firstNumber = solution;
+    solution = Math.round(operate(operator, firstNumber, secondNumber));
+    if (isNaN(solution) || solution === Infinity) {
+      display.textContent = "infinity and beyond";
+      solution = undefined;
+      firstNumber = undefined;
+      secondNumber = undefined;
+      operator = undefined;
+    } else {
+      display.textContent = solution;
+      firstNumber = solution;
+    }
   } else {
     firstNumber = Number(displayValue);
   }
