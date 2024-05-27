@@ -8,14 +8,14 @@ body {
 }
 
 .display {
-    width: fit-content;
+    width: 200px;
     border: 1px solid black;
-    text-align: center;
+    text-align: right;
 }
 
 #display {
     margin: 0;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .buttons {

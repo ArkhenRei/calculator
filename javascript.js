@@ -16,6 +16,7 @@ let operator;
 let result;
 let equalsPressed = false;
 let operatorPressed = false;
+let characterLimit = 0;
 
 let solution;
 
@@ -58,142 +59,172 @@ function operate(operator, firstNumber, secondNumber) {
 function populateDisplay() {
   //display 0
   numberArray.at(9).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "0";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("0");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "0";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("0");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 1
   numberArray.at(6).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "1";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("1");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "1";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("1");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 2
   numberArray.at(7).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "2";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("2");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "2";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("2");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 3
   numberArray.at(8).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "3";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("3");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "3";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("3");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 4
   numberArray.at(3).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "4";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("4");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "4";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("4");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 5
   numberArray.at(4).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "5";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("5");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "5";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("5");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 6
   numberArray.at(5).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "6";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("6");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "6";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("6");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 7
   numberArray.at(0).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "7";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("7");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "7";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("7");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 8
   numberArray.at(1).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "8";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("8");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "8";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("8");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   //display 9
   numberArray.at(2).addEventListener("click", () => {
-    if (display.textContent === "0" || operatorPressed || equalsPressed) {
-      display.textContent = "9";
-      equalsPressed = false;
-      operatorPressed = false;
-    } else {
-      writeValue = document.createTextNode("9");
-      display.appendChild(writeValue);
+    if (characterLimit < 9) {
+      if (display.textContent === "0" || operatorPressed || equalsPressed) {
+        display.textContent = "9";
+        equalsPressed = false;
+        operatorPressed = false;
+      } else {
+        writeValue = document.createTextNode("9");
+        display.appendChild(writeValue);
+      }
+      displayValue = display.textContent;
+      console.log(displayValue);
+      characterLimit++;
     }
-    displayValue = display.textContent;
-    console.log(displayValue);
   });
 
   sumButton.addEventListener("click", () => {
@@ -244,12 +275,17 @@ function populateDisplay() {
       if (isNaN(solution) || solution === Infinity) {
         display.textContent = "infinity and beyond";
       } else {
-        display.textContent = solution;
+        if (solution.toString().length > 9) {
+          display.textContent = solution.toExponential(3);
+        } else {
+          display.textContent = solution;
+        }
       }
       solution = undefined;
       firstNumber = undefined;
       secondNumber = undefined;
       operator = undefined;
+      characterLimit = 0;
     }
   });
 
@@ -259,6 +295,7 @@ function populateDisplay() {
     firstNumber = undefined;
     secondNumber = undefined;
     operator = undefined;
+    characterLimit = 0;
   });
 }
 
@@ -273,12 +310,17 @@ function calculate() {
       secondNumber = undefined;
       operator = undefined;
     } else {
-      display.textContent = solution;
+      if (solution.toString().length > 9) {
+        display.textContent = solution.toExponential(3);
+      } else {
+        display.textContent = solution;
+      }
       firstNumber = solution;
     }
   } else {
     firstNumber = Number(displayValue);
   }
+  characterLimit = 0;
 }
 
 function main() {
